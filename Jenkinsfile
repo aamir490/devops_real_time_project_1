@@ -67,22 +67,7 @@ pipeline { // pipeline  start
         }
 
 
-    stage('Build and Push Image') {
-      steps {
-        script {
-          sh '''
-            cd /opt/docker
-            docker build -t ${JOB_NAME}:v1.${BUILD_ID} .
-            docker tag ${JOB_NAME}:v1.${BUILD_ID} sunnydevops2022/${JOB_NAME}:v1.${BUILD_ID}
-            docker tag ${JOB_NAME}:v1.${BUILD_ID} sunnydevops2022/${JOB_NAME}:latest
-            echo ${DOCKERHUB_PASS} | docker login -u ${DOCKERHUB_USER} --password-stdin
-            docker push sunnydevops2022/${JOB_NAME}:v1.${BUILD_ID}
-            docker push sunnydevops2022/${JOB_NAME}:latest
-            docker rmi -f $(docker images sunnydevops2022/${JOB_NAME} -a -q)
-            docker logout
-          '''
-        }
-      }
+
 
 
   
