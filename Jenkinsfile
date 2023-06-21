@@ -44,7 +44,18 @@ pipeline { // pipeline  start
             }
         } 
 
-
+        // SONAR REPORT EXECUTION :  5     sqa_0723bc7af84e3417690f2d4d7681088a5d610f22
+        stage('SONAR SCANNER') {
+            environment {
+            sonar_token = credentials('SONAR_TOKEN')
+            }
+            steps {
+                sh 'mvn sonar:sonar -Dsonar.projectName=$JOB_NAME \
+                    -Dsonar.projectKey=$JOB_NAME \
+                    -Dsonar.host.url=http://172.31.43.146:9000 \
+                    -Dsonar.token=$sonar_token'
+            }
+        } 
 
 
 
