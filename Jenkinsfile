@@ -57,7 +57,12 @@ pipeline { // pipeline  start
             }
         } 
 
-
+        // COPY JAR TO DOCKERHUB : 6
+        stage('COPY JAR & DOCKERFILE') {
+            steps {
+                sh 'ansible-playbook playbooks/create_directory.yml'
+            }
+        }
 
         
     }   // stage close
