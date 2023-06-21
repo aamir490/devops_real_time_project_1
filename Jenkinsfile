@@ -6,7 +6,7 @@ pipeline { // pipeline  start
     
     // MAVEN CMND PATH :-
     environment {
-      PATH = "$PATH:/opt/apache-maven/bin/mvn"
+      PATH = "$PATH:/opt/apache-maven/bin/"
     }
     
     stages {  // stage start
