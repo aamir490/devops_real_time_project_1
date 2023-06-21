@@ -64,7 +64,8 @@ pipeline { // pipeline  start
             }
         }
 
-        
+
+    
         // IMAGE PUSH TO HUB : 7
         stage('PUSH IMAGE ON DOCKERHUB') {
             environment {
@@ -81,6 +82,8 @@ pipeline { // pipeline  start
         }
 
 
+
+        
         
     }   // stage close
 }  // pipeline close
