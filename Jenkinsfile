@@ -64,21 +64,65 @@ pipeline { // pipeline  start
             }
         }
 
+
+stage('Build and Push Image') {
+      steps {
+        sh '''
+          cd /opt/docker
+          docker build -t ${JOB_NAME}:v1.${BUILD_ID} .
+          docker tag ${JOB_NAME}:v1.${BUILD_ID} sunnydevops2022/${JOB_NAME}:v1.${BUILD_ID}
+          docker tag ${JOB_NAME}:v1.${BUILD_ID} sunnydevops2022/${JOB_NAME}:latest
+          docker login -u ${DOCKERHUB_USER} -p ${DOCKERHUB_PASS}
+          docker push sunnydevops2022/${JOB_NAME}:v1.${BUILD_ID}
+          docker push sunnydevops2022/${JOB_NAME}:latest
+          docker rmi -f $(docker images sunnydevops2022/${JOB_NAME} -a -q)
+          docker logout
+        '''
+      }
+    }
+  }
+  
+  environment {
+    DOCKERHUB_USER = credentials('dockerhub-username')
+    DOCKERHUB_PASS = credentials('dockerhub-password')
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
     
-        // IMAGE PUSH TO HUB : 7
-        stage('PUSH IMAGE ON DOCKERHUB') {
-            environment {
-            dockerhub_user = credentials('DOCKERHUB_USER')            
-            dockerhub_pass = credentials('DOCKERHUB_PASS')
-            }    
-            steps {
-                sh 'ansible-playbook playbooks/push_dockerhub.yml \
-                    --extra-vars "JOB_NAME=$JOB_NAME" \
-                    --extra-vars "BUILD_ID=$BUILD_ID" \
-                    --extra-vars "dockerhub_user=$dockerhub_user" \
-                    --extra-vars "dockerhub_pass=$dockerhub_pass"'              
-            }
-        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         
         
