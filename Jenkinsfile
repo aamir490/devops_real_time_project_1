@@ -56,7 +56,7 @@ pipeline { // pipeline  start
                     -Dsonar.token=$sonar_token'
             }
         } 
-/*
+
         // COPY JAR TO DOCKERHUB : 6
         stage('COPY JAR & DOCKERFILE') {
             steps {
@@ -65,7 +65,7 @@ pipeline { // pipeline  start
         }
 
 
-    
+    /*
         // IMAGE PUSH TO HUB : 7
         stage('PUSH IMAGE ON DOCKERHUB') {
             environment {
