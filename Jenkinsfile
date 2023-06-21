@@ -36,14 +36,14 @@ pipeline { // pipeline  start
             }            
         }
 
-/*
+
         // BUILD THE PACKAGE :- 4
         stage('BUILD') {
             steps {
                 sh 'mvn clean install package'
             }
         } 
-
+/*
         // SONAR REPORT EXECUTION :  5     sqa_0723bc7af84e3417690f2d4d7681088a5d610f22
         stage('SONAR SCANNER') {
             environment {
