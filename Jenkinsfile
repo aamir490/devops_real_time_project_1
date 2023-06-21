@@ -9,10 +9,6 @@ pipeline { // pipeline  start
       PATH = "$PATH:/opt/apache-maven/bin/"
     }
 
-  environment {
-    DOCKERHUB_USER = credentials('dockerhub-username')
-    DOCKERHUB_PASS = credentials('dockerhub-password')
-  }
 
     
     stages {  // stage start
