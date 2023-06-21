@@ -24,7 +24,7 @@ pipeline { // pipeline  start
                 git 'https://github.com/aamir490/devops_real_time_project_1.git'
             }
         }
-/*
+
         //  MODIEFIED SOME FILE : 3
         stage('MODIFIED IMAGE TAG') {
             steps {
@@ -36,7 +36,7 @@ pipeline { // pipeline  start
             }            
         }
 
-
+/*
         // BUILD THE PACKAGE :- 4
         stage('BUILD') {
             steps {
