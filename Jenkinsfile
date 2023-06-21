@@ -37,8 +37,18 @@ pipeline { // pipeline  start
         }
 
 
-      
+        // BUILD THE PACKAGE :- 4
+        stage('BUILD') {
+            steps {
+                sh 'mvn clean install package'
+            }
+        } 
 
+
+
+
+
+        
     }   // stage close
 }  // pipeline close
     
