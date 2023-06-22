@@ -68,13 +68,7 @@ pipeline { // pipeline  start
 
 
 
-        stage('hublogin') {
-            steps {      
-                withCredentials([string(credentialsId: 'fred', variable: 'hubpwd')]) {
-                sh  "docker login -u aamir490 -p ${hubpwd}"
-                }
-            }
-        }
+
 
     stage('PUSH IMAGE ON DOCKERHUB') {
             environment {
